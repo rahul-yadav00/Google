@@ -1,6 +1,10 @@
-$(document).ready(function () {
-    menuokl();
-  });
+// fetch('./loade').then(res => res.json())
+// .then(data => console.log(data))
+
+// $(document).ready(function () {
+//     menuokl();
+//     allUserName();
+//   });
   
   function menuokl() {
     var menuContent = "";
@@ -16,4 +20,13 @@ $(document).ready(function () {
     // console.log(menuContent);
     $("#menu_container").html(menuContent);
   }
-  
+  //jquarry uses 
+
+  // function allUserName() {
+  //   var nameCollect = [];
+  //   for (i = 0; i < db2.spirits[i].length; i++) {
+  //     nameCollect = nameCollect.push(db2.spirits[i].namn);
+  //   }
+  //   console.log(nameCollect);
+  //   return nameCollect;
+  // }

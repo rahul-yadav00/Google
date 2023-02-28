@@ -9,11 +9,15 @@
 // advantage that the data is easy to access through simple APIs. Also, when storing as local storage,
 // all data is stored as strings, which might be adding some complexity.
 //
-function allUserNames() {
+$(document).ready(function () {
+  allUserNam();
+});
+function allUserNam() {
   var nameCollect = [];
   for (i = 0; i < DB.users.length; i++) {
-    nameCollect.push(DB.users[i].username);
+    collectedName = nameCollect.push(DB.users[i].username);
   }
+  console.log(nameCollect);
   return nameCollect;
 }
 
@@ -113,7 +117,7 @@ function allBeverages() {
 function allStrongBeverages(strength) {
   // Using a local variable to collect the items.
   //
-  var collector = [];
+  var  collector = [];
 
   // The DB is stored in the variable DB2, with "spirits" as key element. If you need to select only certain
   // items, you may introduce filter functions in the loop... see the template within comments.
@@ -122,16 +126,26 @@ function allStrongBeverages(strength) {
     // We check if the percentage alcohol strength stored in the data base is lower than the
     // given limit strength. If the limit is set to 14, also liqueuers are listed.
     //
-    if (percentToNumber(DB2.spirits[i].alkoholhalt) > "20%") {
+    if (percentToNumber(DB2.spirits[i].alkoholhalt) > strength) {
       // The key for the beverage name is "namn", and beverage type is "varugrupp".
       //
-      collector.push([DB2.spirits[i].namn, DB2.spirits[i].varugrupp]);
+      high = collector.push([DB2.spirits[i].namn, DB2.spirits[i].varugrupp]);
     }
   }
-
+  console.log(high)
   // Don't forget to return the result.
   //
   return collector;
+}
+
+
+function allStrongBeverages(strength) {
+  var i;
+  var x = document.getElementsByClassName("alcohol");
+  for (i = 0; i < DB2.spirits.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(cityName).style.display = "block";  
 }
 
 // =====================================================================================================

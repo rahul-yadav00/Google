@@ -347,9 +347,13 @@ img {
 }
 
 /*=============================== MENU ================================*/
-.menu__container:hover{
-  -webkit-animation: ;
+#menu_container {
+  padding: 30px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
+
+
 
 .menu__container {
   grid-template-columns: repeat(2, 1fr);
@@ -357,9 +361,6 @@ img {
   scroll-behavior: smooth;
 }
 
-.menu__container::-webkit-scrollbar {
-   display: none; 
-}
 
 .menu__content {
   position: relative;
