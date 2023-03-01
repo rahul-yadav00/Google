@@ -1,6 +1,4 @@
-* {
-    box-sizing: border-box;
-  }
+
 
 .menu_header {
     overflow: hidden;
@@ -47,3 +45,22 @@
     display: table;
     clear: both;
   }
+
+
+/* ========================================buttons on menu page============================================ */
+
+
+#menu_container {
+  padding: 50px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+
+/* ========================================categories page============================================ */
+
+.categories-list{
+  padding: 10px;
+}
+
+

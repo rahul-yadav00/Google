@@ -12,12 +12,15 @@
 $(document).ready(function () {
   allUserNam();
 });
+
+
+
 function allUserNam() {
   var nameCollect = [];
-  for (i = 0; i < DB.users.length; i++) {
-    collectedName = nameCollect.push(DB.users[i].username);
+  for (i = 0; i < DB2.spirits.length ; i++) {
+    collectedName = nameCollect.push(DB2.spirits[i].namn);
   }
-  console.log(nameCollect);
+  // console.log(nameCollect,"huugug") ;
   return nameCollect;
 }
 
@@ -139,26 +142,12 @@ function allStrongBeverages(strength) {
 }
 
 
-function allStrongBeverages(strength) {
-  var i;
-  var x = document.getElementsByClassName("alcohol");
-  for (i = 0; i < DB2.spirits.length; i++) {
-    x[i].style.display = "none";  
-  }
-  document.getElementById(cityName).style.display = "block";  
-}
-
 // =====================================================================================================
 // Lists all beverage types in the database. As you will see, there are quite a few, and you might want
 // select only a few of them for your data.
-//
-function beverageTypes() {
-  var types = [];
-  for (i = 0; i < DB2.spirits.length; i++) {
-    addToSet(types, DB2.spirits[i].varugrupp);
-  }
-  return types;
-}
+
+
+
 
 // =====================================================================================================
 // Adds an item to a set, only if the item is not already there.

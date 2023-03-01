@@ -1,10 +1,4 @@
-// fetch('./loade').then(res => res.json())
-// .then(data => console.log(data))
 
-// $(document).ready(function () {
-//     menuokl();
-//     allUserName();
-//   });
   
   function menuokl() {
     var menuContent = "";
@@ -20,13 +14,18 @@
     // console.log(menuContent);
     $("#menu_container").html(menuContent);
   }
-  //jquarry uses 
 
-  // function allUserName() {
-  //   var nameCollect = [];
-  //   for (i = 0; i < db2.spirits[i].length; i++) {
-  //     nameCollect = nameCollect.push(db2.spirits[i].namn);
-  //   }
-  //   console.log(nameCollect);
-  //   return nameCollect;
-  // }
+  function beverageTypes() {
+    var types = [];
+    
+    for (i = 0; i < DB2.spirits.length; i++) {
+      addToSet(types, DB2.spirits[i].varugrupp);
+    }
+    console.log(types,"types");
+    var typesOfBeverages = ""
+    for (i = 0; i < types.length; i++) {
+      typesOfBeverages += `<a href="#" class="categories-list">${(types[i])}</a>`;
+      // console.log(typesOfBeverages, "typesOfBeverages")
+      $("#menu_container").html(typesOfBeverages);
+    }
+  }
