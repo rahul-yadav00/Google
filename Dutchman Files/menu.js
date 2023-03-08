@@ -1,31 +1,131 @@
+////////////////////////////////////////////        ALL BEVERAGES             //////////////////////////////////////////
 
-  
-  function menuokl() {
-    var menuContent = "";
-    for (i = 0; i < 200; i++) {
-      menuContent += `<div class="menu__content">
+function menuokl() {
+  var menuContent = "";
+  for (i = 0; i < 200; i++) {
+    menuContent += `<div class="menu__content">
               <h3 class="menu__article_id">${DB2.spirits[i].artikelid}</h3>
               <h3 class="menu__name">${DB2.spirits[i].namn}</h3>
               <span class="menu__detail">${DB2.spirits[i].alkoholhalt}</span>
               <span class="menu__preci">${DB2.spirits[i].prisinklmoms}</span>
               <a href="#" class="button menu__button">Order<i class='bx bx-cart-alt'></i></a>
       </div>`;
-    }
-    // console.log(menuContent);
-    $("#menu_container").html(menuContent);
   }
+  // console.log(menuContent);
+  $("#menu_container").html(menuContent);
+}
 
-  function beverageTypes() {
-    var types = [];
-    
-    for (i = 0; i < DB2.spirits.length; i++) {
-      addToSet(types, DB2.spirits[i].varugrupp);
-    }
-    console.log(types,"types");
-    var typesOfBeverages = ""
-    for (i = 0; i < types.length; i++) {
-      typesOfBeverages += `<a href="#" class="categories-list">${(types[i])}</a>`;
-      // console.log(typesOfBeverages, "typesOfBeverages")
-      $("#menu_container").html(typesOfBeverages);
+function beverageTypes() {
+  var types = [];
+
+  for (i = 0; i < DB2.spirits.length; i++) {
+    addToSet(types, DB2.spirits[i].varugrupp);
+  }
+  console.log(types, "types");
+  var typesOfBeverages = "";
+  for (i = 0; i < types.length; i++) {
+    typesOfBeverages += `<a href="#" class="categories-list">${types[i]}</a>`;
+    // console.log(typesOfBeverages, "typesOfBeverages")
+    $("#menu_container").html(typesOfBeverages);
+  }
+}
+
+////////////////////////////////////////////        STRONG BEVERAGES             //////////////////////////////////////////
+
+function allStrongBeverages() {
+  // Using a local variable to collect the items.
+  //
+  var collectedNameByPercentage = [];
+  var strength = 20;
+  // The DB is stored in the variable DB2, with "spirits" as key element. If you need to select only certain
+  // items, you may introduce filter functions in the loop... see the template within comments.
+  //
+  for (i = 0; i < DB2.spirits.length; i++) {
+    // We check if the percentage alcohol strength stored in the data base is lower than the
+    // given limit strength. If the limit is set to 14, also liqueuers are listed.
+    //
+    if (percentToNumber(DB2.spirits[i].alkoholhalt) > strength) {
+      // The key for the beverage name is "namn", and beverage type is "varugrupp".
+      collectedNameByPercentage.push([
+        DB2.spirits[i].namn,
+        // DB2.spirits[i].varugrupp,
+      ]);
     }
   }
+  console.log(collectedNameByPercentage, "collectedNameByPercentage");
+  var strengthOfBeverages = "";
+  for (i = 0; i < collectedNameByPercentage.length; i++) {
+    strengthOfBeverages += `<div class="menu__content"><a href="#" class="categories-list">${collectedNameByPercentage[i]}</a>
+                            <a href="#" class="button menu__button">Order<i class='bx bx-cart-alt'></i></a></div>`;
+    // console.log(strengthOfBeverages, "strengthOfBeverages");
+  }
+  $("#menu_container").html(strengthOfBeverages);
+}
+
+////////////////////////////////////////////        SOFT BEVERAGES             //////////////////////////////////////////
+
+
+function allSoftBeverages() {
+  // Using a local variable to collect the items.
+  //
+  var collectedNameByPercentageSoft = [];
+  var strength2 = 10;
+  // The DB is stored in the variable DB2, with "spirits" as key element. If you need to select only certain
+  // items, you may introduce filter functions in the loop... see the template within comments.
+  //
+  for (i = 0; i < DB2.spirits.length; i++) {
+    // We check if the percentage alcohol strength stored in the data base is lower than the
+    // given limit strength. If the limit is set to 14, also liqueuers are listed.
+    //
+    if (percentToNumber(DB2.spirits[i].alkoholhalt) < strength2) {
+      // The key for the beverage name is "namn", and beverage type is "varugrupp".
+      collectedNameByPercentageSoft.push([
+        DB2.spirits[i].namn,
+        // DB2.spirits[i].varugrupp,
+        // DB2.spirits[i].alkoholhalt,
+      ]);
+    }
+  }
+  console.log(collectedNameByPercentageSoft, "collectedNameByPercentageSoft");
+  var strengthOfSoftBeverages = "";
+  for (i = 0; i < collectedNameByPercentageSoft.length; i++) {
+    strengthOfSoftBeverages += `<div class="menu__content"><a href="#" class="categories-list">${collectedNameByPercentageSoft[i]}</a>
+                                 <a href="#" class="button menu__button">Order<i class='bx bx-cart-alt'></i></a></div>`;
+    // console.log(strengthOfSoftBeverages, "strengthOfSoftBeverages");
+  }
+  $("#menu_container").html(strengthOfSoftBeverages);
+}
+
+///////////////////////////////////////           SEARCH BOX          ////////////////////////////////////////
+
+const searchInput = document.getElementById("searchInput");
+searchInput.addEventListener("input", search);
+
+function search() {
+  searchValue = searchInput.value;
+  collectedSearchValue = [];
+
+  for (i = 0; i < DB2.spirits.length; i++) {
+    if (DB2.spirits[i].namn.includes(searchValue)) {
+      collectedSearchValue.push([DB2.spirits[i].namn]);
+    }
+  }
+  var searchData = "";
+  for (i = 0; i < collectedSearchValue.length; i++) {
+    searchData += `<div class="menu__content"><a href="#" class="categories-list">${collectedSearchValue[i]}</a>
+                   <a href="#" class="button menu__button">Order<i class='bx bx-cart-alt'></i></a></div>`;
+  }
+  console.log(searchData, "searchData");
+  $("#menu_container").html(searchData);
+}
+
+
+// function table(event) {
+//   // event.preventDefault();
+//   tableData = `
+//     <div class="table" id="table">
+//       <a href="#"><img src="assets/img/coffee-table.png" alt="" /></a>
+//     </div>;`
+//   $("#menu_container").html(tableData);
+// }
+

@@ -26,6 +26,26 @@ then you can enter javascript calls, to test the functions.
       <i class="bx bx-chevron-up scrolltop__icon"></i>
     </a>
 
+    <!--========================== LOG IN MODAL===========================-->
+    <div class="loginModal" id="loginModal">
+      <div class="modalContent" id="modalContent">
+        <form class="modalForm">
+          <label for="username">Username :</label>
+          <input type="text" id="username" name="username" /><br />
+
+          <label for="password">Password :</label>
+          <input type="password" id="password" name="password" /><br />
+
+          <button type="submit" id="login">Log In</button>
+          <button
+            onclick="document.getElementById('loginModal').style.display='none'"
+          >
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>
+
     <!--========== HEADER ==========-->
     <header class="l-header" id="header">
       <nav class="nav bd-container">
@@ -34,7 +54,12 @@ then you can enter javascript calls, to test the functions.
         <div class="nav__menu" id="nav-menu">
           <ul class="nav__list">
             <li class="nav__item">
-              <a href="login.html" class="nav__link active-link">Log in</a>
+              <a
+                href="#logIn"
+                class="nav__link active-link"
+                onclick="document.getElementById('loginModal').style.display='block'"
+                >Log in</a
+              >
             </li>
             <li class="nav__item">
               <a href="#home" class="nav__link">Home</a>
@@ -51,8 +76,6 @@ then you can enter javascript calls, to test the functions.
             <li class="nav__item">
               <a href="#contact" class="nav__link">Contact us</a>
             </li>
-
-            <li><i class="bx bx-moon change-theme" id="theme-button"></i></li>
           </ul>
         </div>
 
@@ -150,8 +173,8 @@ then you can enter javascript calls, to test the functions.
             <span class="menu__detail">Delicious dish</span>
             <span class="menu__preci">$12.00</span>
             <a href="#" class="button menu__button"
-              ><i class="bx bx-cart-alt">Order</i
-            ></a>
+              ><i class="bx bx-cart-alt">Order</i></a
+            >
           </div>
           <div class="menu__content">
             <img src="assets/img/plate2.png" alt="" class="menu__img" />
@@ -159,8 +182,8 @@ then you can enter javascript calls, to test the functions.
             <span class="menu__detail">Delicious dish</span>
             <span class="menu__preci">$12.00</span>
             <a href="#" class="button menu__button"
-              ><i class="bx bx-cart-alt">Order</i
-            ></a>
+              ><i class="bx bx-cart-alt">Order</i></a
+            >
           </div>
 
           <div class="menu__content">
@@ -169,8 +192,8 @@ then you can enter javascript calls, to test the functions.
             <span class="menu__detail">Delicious dish</span>
             <span class="menu__preci">$9.50</span>
             <a href="#" class="button menu__button"
-              ><i class="bx bx-cart-alt">Order</i
-            ></a>
+              ><i class="bx bx-cart-alt">Order</i></a
+            >
           </div>
         </div>
       </section>

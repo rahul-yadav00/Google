@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="assets\css\styles.css" />
+    <link rel="stylesheet" href="menu.css" />
+    <link rel="stylesheet" href="table.css" />
+    <script src="table.js"></script>
+  </head>
+
+  <body>
+    <!--========================== LOG IN MODAL ===========================-->
+    <div class="loginModal" id="loginModal">
+      <div class="modalContent" id="modalContent">
+        <form class="modalForm">
+          <label for="username">Username :</label>
+          <input type="text" id="username" name="username" /><br />
+
+          <label for="password">Password :</label>
+          <input type="password" id="password" name="password" /><br />
+
+          <button type="submit" id="login">Log In</button>
+          <button
+            onclick="document.getElementById('loginModal').style.display='none'"
+          >
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!--========================== TABLE MODAL ===========================-->
+    <div class="tableModal" id="tableModal">
+      <div class="tableContent" id="tableContent">
+        <button style="max-width: 60px;max-height: 50px; display: contents;position: relative;"
+        onclick="document.getElementById('tableModal').style.display='none'"
+      >
+        Cancel
+      </button>
+        
+        <div class="item-list">
+          <div class="menu__content">
+            <h3 class="menu__article_id">25053</h3>
+            <h3 class="menu__name">Braastad XO</h3>
+            <span class="menu__detail">40%</span>
+            <span class="menu__preci">442.00</span>
+            <a href="#" class="button menu__button" onclick="deleteItem(this)"
+              >Remove<i class="bx bx-cart-alt"></i
+            ></a>
+          </div>
+          <div class="menu__content">
+            <h3 class="menu__article_id">25053</h3>
+            <h3 class="menu__name">Braastad XO</h3>
+            <span class="menu__detail">40%</span>
+            <span class="menu__preci">442.00</span>
+            <a href="#" class="button menu__button"
+              >Remove<i class="bx bx-cart-alt"></i
+            ></a>
+          </div>
+          <div class="menu__content">
+            <h3 class="menu__article_id">25053</h3>
+            <h3 class="menu__name">Braastad XO</h3>
+            <span class="menu__detail">40%</span>
+            <span class="menu__preci">442.00</span>
+            <a href="#" class="button menu__button"
+              >Remove<i class="bx bx-cart-alt"></i
+            ></a>
+          </div>
+          <div class="menu__content">
+            <h3 class="menu__article_id">25053</h3>
+            <h3 class="menu__name">Braastad XO</h3>
+            <span class="menu__detail">40%</span>
+            <span class="menu__preci">442.00</span>
+            <a href="#" class="button menu__button"
+              >Remove<i class="bx bx-cart-alt"></i
+            ></a>
+          </div>
+          <div class="menu__content">
+            <h3 class="menu__article_id">25053</h3>
+            <h3 class="menu__name">Braastad XO</h3>
+            <span class="menu__detail">40%</span>
+            <span class="menu__preci">442.00</span>
+            <a href="#" class="button menu__button"
+              >Remove<i class="bx bx-cart-alt"></i
+            ></a>
+          </div>
+          <div class="menu__content">
+            <h3 class="menu__article_id">25053</h3>
+            <h3 class="menu__name">Braastad XO</h3>
+            <span class="menu__detail">40%</span>
+            <span class="menu__preci">442.00</span>
+            <a href="#" class="button menu__button"
+              >Remove<i class="bx bx-cart-alt"></i
+            ></a>
+          </div>
+          <div class="menu__content">
+            <h3 class="menu__article_id">25053</h3>
+            <h3 class="menu__name">Braastad XO</h3>
+            <span class="menu__detail">40%</span>
+            <span class="menu__preci">442.00</span>
+            <a href="#" class="button menu__button"
+              >Remove<i class="bx bx-cart-alt"></i
+            ></a>
+          </div>
+          <div class="menu__content">
+            <h3 class="menu__article_id">25053</h3>
+            <h3 class="menu__name">Braastad XO</h3>
+            <span class="menu__detail">40%</span>
+            <span class="menu__preci">442.00</span>
+            <a href="#" class="button menu__button"
+              >Remove<i class="bx bx-cart-alt"></i
+            ></a>
+          </div>
+          <div class="menu__content">
+            <h3 class="menu__article_id">25053</h3>
+            <h3 class="menu__name">Braastad XO</h3>
+            <span class="menu__detail">40%</span>
+            <span class="menu__preci">442.00</span>
+            <a href="#" class="button menu__button"
+              >Remove<i class="bx bx-cart-alt"></i
+            ></a>
+          </div>
+          <div class="menu__content">
+            <h3 class="menu__article_id">25053</h3>
+            <h3 class="menu__name">Braastad XO</h3>
+            <span class="menu__detail">40%</span>
+            <span class="menu__preci">442.00</span>
+            <a href="#" class="button menu__button"
+              >Remove<i class="bx bx-cart-alt"></i
+            ></a>
+          </div>
+          <div class="menu__content">
+            <h3 class="menu__article_id">25053</h3>
+            <h3 class="menu__name">Braastad XO</h3>
+            <span class="menu__detail">40%</span>
+            <span class="menu__preci">442.00</span>
+            <a href="#" class="button menu__button"
+              >Remove<i class="bx bx-cart-alt"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--========================== TABLE SECTION ===========================-->
+    <section>
+      <div class="menu_container">
+        <header class="menu_header" id="menu_header">
+          <a href="#" class="menu__logo">Uppsala Resto Pub </a>
+        </header>
+      </div>
+    </section>
+
+    <header class="l-header" id="header">
+      <nav class="nav bd-container">
+        <a href="#" class="nav__logo">Uppsala Resto Pub</a>
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a
+                href="#logIn"
+                class="nav__link active-link"
+                onclick="document.getElementById('loginModal').style.display='block'"
+                >Log in</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="bx bx-menu"></i>
+        </div>
+      </nav>
+    </header>
+    <!--========================== TABLE CONTENT ===========================-->
+    <div class="table-container">
+      <div class="table" id="table_container">
+        <a
+          href="#"
+          onclick="document.getElementById('tableModal').style.display='grid'"
+          ><img src="assets/img/coffee-table.png" alt="" /><b>01</b></a
+        >
+      </div>
+
+      <div class="table" id="table_container">
+        <a
+          href="#"
+          onclick="document.getElementById('tableModal').style.display='grid'"
+          ><img src="assets/img/coffee-table.png" alt="" /><b>02</b></a
+        >
+      </div>
+
+      <div class="table" id="table_container">
+        <a
+          href="#"
+          onclick="document.getElementById('tableModal').style.display='grid'"
+          ><img src="assets/img/coffee-table.png" alt="" /><b>03</b></a
+        >
+      </div>
+      <div class="table" id="table_container">
+        <a
+          href="#"
+          onclick="document.getElementById('tableModal').style.display='grid'"
+          ><img src="assets/img/coffee-table.png" alt="" /><b>04</b></a
+        >
+      </div>
+
+      <div class="table" id="table_container">
+        <a
+          href="#"
+          onclick="document.getElementById('tableModal').style.display='grid'"
+          ><img src="assets/img/coffee-table.png" alt="" /><b>05</b></a
+        >
+      </div>
+
+      <div class="table" id="table_container">
+        <a
+          href="#"
+          onclick="document.getElementById('tableModal').style.display='grid'"
+          ><img src="assets/img/coffee-table.png" alt="" /><b>06</b></a
+        >
+      </div>
+
+      <div class="table" id="table_container">
+        <a
+          href="#"
+          onclick="document.getElementById('tableModal').style.display='grid'"
+          ><img src="assets/img/coffee-table.png" alt="" /><b>07</b></a
+        >
+      </div>
+      <div class="table" id="table_container">
+        <a
+          href="#"
+          onclick="document.getElementById('tableModal').style.display='grid'"
+          ><img src="assets/img/coffee-table.png" alt="" /><b>08</b></a
+        >
+      </div>
+    </div>
+  </body>
+</html>

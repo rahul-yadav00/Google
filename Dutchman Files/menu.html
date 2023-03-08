@@ -28,24 +28,53 @@
 
         <div class="nav__menu" id="nav-menu">
           <ul class="nav__list">
+            <li class="table-icon">
+              <a href="table.html" class="nav__link" >
+                <img src="assets/img/coffee-table.png" alt="" style="max-width: 20px; max-height: 20px; margin-top: 5px;">
+              </a>
+            </li>
+            
             <li class="nav__item">
-              <a href="#home" class="nav__link active-link" onclick="menuokl()"
+              <a
+                href="#allBeverages"
+                class="nav__link active-link"
+                onclick="menuokl()"
                 >All Beverages</a
               >
             </li>
             <li class="nav__item">
-              <a href="#about" class="nav__link" onclick="beverageTypes()"
+              <a
+                href="#beverageTypes"
+                class="nav__link"
+                onclick="beverageTypes()"
                 >Beverage Types
               </a>
             </li>
             <li class="nav__item">
-              <a href="#services" class="nav__link">Soft</a>
+              <a
+                href="#allStrongBeverages"
+                class="nav__link"
+                onclick="allStrongBeverages()"
+                >Strong</a
+              >
             </li>
             <li class="nav__item">
-              <a href="menu.html" class="nav__link">Menu</a>
+              <a
+                href="#allSoftBeverages"
+                class="nav__link"
+                onclick="allSoftBeverages()"
+                >Soft</a
+              >
             </li>
             <li class="nav__item">
-              <a href="#contact" class="nav__link">Contact us</a>
+              <form>
+                <input
+                  type="text"
+                  id="searchInput"
+                  placeholder="Search for Brands..."
+                  style="font-size: small"
+                />
+              </form>
             </li>
 
             <li><i class="bx bx-moon change-theme" id="theme-button"></i></li>
@@ -59,5 +88,7 @@
     </header>
 
     <div class="menu___container bd-grid" id="menu_container"></div>
+
+    
   </body>
 </html>

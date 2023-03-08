@@ -11,6 +11,8 @@
 //
 $(document).ready(function () {
   allUserNam();
+  menuokl()
+  // allSoftBeverages()
 });
 
 
@@ -109,7 +111,7 @@ function allBeverages() {
   for (i = 0; i < DB2.spirits.length; i++) {
     collector.push([DB2.spirits[i].namn, DB2.spirits[i].varugrupp]);
   }
-  //
+  // console.log(collector)
   return collector;
 }
 
@@ -117,29 +119,7 @@ function allBeverages() {
 // This function returns the names of all strong beverages (i.e. all that contain a percentage of alcohol
 // higher than the strength given in percent.
 //
-function allStrongBeverages(strength) {
-  // Using a local variable to collect the items.
-  //
-  var  collector = [];
 
-  // The DB is stored in the variable DB2, with "spirits" as key element. If you need to select only certain
-  // items, you may introduce filter functions in the loop... see the template within comments.
-  //
-  for (i = 0; i < DB2.spirits.length; i++) {
-    // We check if the percentage alcohol strength stored in the data base is lower than the
-    // given limit strength. If the limit is set to 14, also liqueuers are listed.
-    //
-    if (percentToNumber(DB2.spirits[i].alkoholhalt) > strength) {
-      // The key for the beverage name is "namn", and beverage type is "varugrupp".
-      //
-      high = collector.push([DB2.spirits[i].namn, DB2.spirits[i].varugrupp]);
-    }
-  }
-  console.log(high)
-  // Don't forget to return the result.
-  //
-  return collector;
-}
 
 
 // =====================================================================================================
@@ -175,21 +155,20 @@ function percentToNumber(percentStr) {
 
 
 
-// $(document).ready(function () {
-//   menuok();
-// });
 
-// function menuok() {
-//   var menuContent = "";
-//   for (i = 0; i < 500; i++) {
-//     menuContent += `<div class="menu__content">
-//             <h3 class="menu__article_id">${DB2.spirits[i].artikelid}</h3>
-//             <h3 class="menu__name">${DB2.spirits[i].namn}</h3>
-//             <span class="menu__detail">${DB2.spirits[i].alkoholhalt}</span>
-//             <span class="menu__preci">${DB2.spirits[i].prisinklmoms}</span>
-//             <a href="#" class="button menu__button">Order<i class='bx bx-cart-alt'></i></a>
-//     </div>`;
+
+
+
+/*============================================ LOG IN MODAL=================================================*/
+
+
+
+// Get the modal
+// var modal = document.getElementById("loginModal");
+
+// When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//   if (event.target == loginModal) {
+//     loginModal.style.display = "none";
 //   }
-//   // console.log(menuContent);
-//   $("#menu_container").html(menuContent);
 // }
