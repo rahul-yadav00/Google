@@ -29,6 +29,41 @@ function beverageTypes() {
     $("#menu_container").html(typesOfBeverages);
   }
 }
+/////////////////////////////////////////////////        WHISKY             ////////////////////////////////////////////////
+function allVodka() {
+  var vodka = "Cognac";
+  var collectedAllVodka = []
+  for(i=0; i < DB2.spirits.length ; i++){
+    if(DB2.spirits[i].varugrupp == vodka) 
+    collectedAllVodka.push([DB2.spirits[i].namn]);
+    
+  }
+  // console.log(collectedAllWhisky, "collectedAllWhisky")
+  var printVodka = "";
+  for(i=0; i < collectedAllVodka.length; i++){
+    printVodka += `<div class="menu__content"><a href="#" class="categories-list">${collectedAllVodka[i]}</a>
+    <a href="#" class="button menu__button">Order<i class='bx bx-cart-alt'></i></a></div>`;
+  }
+  $("#menu_container").html(printVodka);
+}
+/////////////////////////////////////////////////        WHISKY             ////////////////////////////////////////////////
+
+function allWhisky() {
+  var whisky = "Whisky, Malt";
+  var collectedAllWhisky = []
+  for(i=0; i < DB2.spirits.length ; i++){
+    if(DB2.spirits[i].varugrupp == whisky) 
+    collectedAllWhisky.push([DB2.spirits[i].namn]);
+    
+  }
+  // console.log(collectedAllWhisky, "collectedAllWhisky")
+  var printWhisky = "";
+  for(i=0; i < collectedAllWhisky.length; i++){
+    printWhisky += `<div class="menu__content"><a href="#" class="categories-list">${collectedAllWhisky[i]}</a>
+    <a href="#" class="button menu__button">Order<i class='bx bx-cart-alt'></i></a></div>`;
+  }
+  $("#menu_container").html(printWhisky);
+}
 
 ////////////////////////////////////////////        STRONG BEVERAGES             //////////////////////////////////////////
 
