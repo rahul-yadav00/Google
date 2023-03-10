@@ -1,110 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="assets\css\styles.css" />
-    <script type="text/javascript" src="Beverages.js"></script>
-    <script src="menu.js" defer></script>
-    <link rel="stylesheet" href="menu.css" />
-    <script type="text/javascript" src="loader.js"></script>
-  </head>
 
-  <body>
-    <section>
-      <div class="menu_container">
-        <header class="menu_header" id="menu_header">
-          <a href="#" class="menu__logo">Uppsala Resto Pub </a>
-        </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+  <link rel="stylesheet" href="assets\css\styles.css" />
+  <script type="text/javascript" src="Beverages.js"></script>
+  <script src="menu.js" defer></script>
+  <link rel="stylesheet" href="menu.css" />
+  <script type="text/javascript" src="loader.js"></script>
+</head>
+
+<body>
+  <section>
+    <div class="menu_container">
+      <header class="menu_header" id="menu_header">
+        <a href="#" class="menu__logo">Uppsala Resto Pub </a>
+      </header>
+    </div>
+  </section>
+
+  <header class="l-header" id="header">
+    <nav class="nav bd-container">
+      <a href="#" class="nav__logo active-link">Uppsala Resto Pub</a>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="table-icon">
+            <a href="table.html" class="nav__link">
+              <img src="assets/img/coffee-table.png" alt=""
+                style="margin-left:9px; max-width: 20px; max-height: 20px; margin-top: 5px;">
+            </a>
+          </li>
+
+          <li class="nav__item">
+            <a href="#allBeverages" class="nav__link active-link" onclick="menuokl()">Beverages</a>
+          </li>
+          <li class="nav__item">
+            <a href="#beverageTypes" class="nav__link" onclick="beverageTypes()">Categories
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="#allWhisky" class="nav__link" onclick="allWhisky()">Whisky</a>
+          </li>
+          <li class="nav__item">
+            <a href="#allWhisky" class="nav__link" onclick="allVodka()">Vodka</a>
+          </li>
+          <li class="nav__item">
+            <a href="#allStrongBeverages" class="nav__link" onclick="allStrongBeverages()">Strong</a>
+          </li>
+          <li class="nav__item">
+            <a href="#allSoftBeverages" class="nav__link" onclick="allSoftBeverages()">Soft</a>
+          </li>
+          <li class="nav__item">
+            <a href="#cart" class="nav__link" onclick="cart()">Cart</a>
+          </li>
+          <li class="nav__item">
+            <form>
+              <input type="text" id="searchInput" placeholder="Search for Brands..." style="font-size: small" />
+            </form>
+          </li>
+
+          <li><i class="bx bx-moon change-theme" id="theme-button"></i></li>
+        </ul>
       </div>
-    </section>
 
-    <header class="l-header" id="header">
-      <nav class="nav bd-container">
-        <a href="#" class="nav__logo">Uppsala Resto Pub</a>
+      <div class="nav__toggle" id="nav-toggle">
+        <i class="bx bx-menu"></i>
+      </div>
+    </nav>
+  </header>
 
-        <div class="nav__menu" id="nav-menu">
-          <ul class="nav__list">
-            <li class="table-icon">
-              <a href="table.html" class="nav__link" >
-                <img src="assets/img/coffee-table.png" alt="" style="margin-left:9px; max-width: 20px; max-height: 20px; margin-top: 5px;">
-              </a>
-            </li>
-            
-            <li class="nav__item">
-              <a
-                href="#allBeverages"
-                class="nav__link active-link"
-                onclick="menuokl()"
-                >All Beverages</a
-              >
-            </li>
-            <li class="nav__item">
-              <a
-                href="#beverageTypes"
-                class="nav__link"
-                onclick="beverageTypes()"
-                >Beverage Types
-              </a>
-            </li>
-            <li class="nav__item">
-              <a
-                href="#allWhisky"
-                class="nav__link"
-                onclick="allWhisky()"
-                >Whisky</a
-              >
-            </li>
-            <li class="nav__item">
-              <a
-                href="#allWhisky"
-                class="nav__link"
-                onclick="allVodka()"
-                >Vodka</a
-              >
-            </li>
-            <li class="nav__item">
-              <a
-                href="#allStrongBeverages"
-                class="nav__link"
-                onclick="allStrongBeverages()"
-                >Strong</a
-              >
-            </li>
-            <li class="nav__item">
-              <a
-                href="#allSoftBeverages"
-                class="nav__link"
-                onclick="allSoftBeverages()"
-                >Soft</a
-              >
-            </li>
-            <li class="nav__item">
-              <form>
-                <input
-                  type="text"
-                  id="searchInput"
-                  placeholder="Search for Brands..."
-                  style="font-size: small"
-                />
-              </form>
-            </li>
+  <div class="menu___container bd-grid" id="menu_container"></div>
 
-            <li><i class="bx bx-moon change-theme" id="theme-button"></i></li>
-          </ul>
-        </div>
 
-        <div class="nav__toggle" id="nav-toggle">
-          <i class="bx bx-menu"></i>
-        </div>
-      </nav>
-    </header>
+</body>
 
-    <div class="menu___container bd-grid" id="menu_container"></div>
-
-    
-  </body>
 </html>

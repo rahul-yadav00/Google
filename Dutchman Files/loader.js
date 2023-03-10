@@ -10,8 +10,8 @@
 // all data is stored as strings, which might be adding some complexity.
 //
 $(document).ready(function () {
-  allUserNam();
-  menuokl()
+  // allUserNam();
+  menuokl();
   // allSoftBeverages()
 });
 

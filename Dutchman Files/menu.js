@@ -8,13 +8,33 @@ function menuokl() {
               <h3 class="menu__name">${DB2.spirits[i].namn}</h3>
               <span class="menu__detail">${DB2.spirits[i].alkoholhalt}</span>
               <span class="menu__preci">${DB2.spirits[i].prisinklmoms}</span>
-              <a href="#" class="button menu__button">Order<i class='bx bx-cart-alt'></i></a>
+              <a href="#" class="button menu__button" onclick = "orderNow('${DB2.spirits[i].namn}')">Order<i class='bx bx-cart-alt'></i></a>
       </div>`;
   }
   // console.log(menuContent);
   $("#menu_container").html(menuContent);
+
+////////////////////////////////////////////         ORDER           //////////////////////////////////////
+var orderList = [];
+
+function orderNow(itemName) {
+  orderList.push(itemName);
+  console.log(orderList, "orderList");
 }
 
+function cart() {
+  var orderedItems = "";
+  for (i = 0; i < orderList.length; i++) {
+    // console.log(orderList.length);
+    orderedItems += `<div class="menu__content">
+    <h3 class="menu__name">${orderList[i]}</h3>
+</div>`;
+    // console.log(orderedItems, "orderedItems");
+  }
+  $("#menu_container").html(orderedItems);
+}
+
+////////////////////////////////////////////         BEVERAGES TYPES           //////////////////////////////////////////
 function beverageTypes() {
   var types = [];
 
@@ -24,25 +44,24 @@ function beverageTypes() {
   console.log(types, "types");
   var typesOfBeverages = "";
   for (i = 0; i < types.length; i++) {
-    typesOfBeverages += `<a href="#" class="categories-list">${types[i]}</a>`;
+    typesOfBeverages += `<div class="menu__content"><a href="#" class="categories-list menu__name">${types[i]}</a></div>`;
     // console.log(typesOfBeverages, "typesOfBeverages")
     $("#menu_container").html(typesOfBeverages);
   }
 }
-/////////////////////////////////////////////////        WHISKY             ////////////////////////////////////////////////
+/////////////////////////////////////////////////        VODKA             ////////////////////////////////////////////////
 function allVodka() {
   var vodka = "Cognac";
-  var collectedAllVodka = []
-  for(i=0; i < DB2.spirits.length ; i++){
-    if(DB2.spirits[i].varugrupp == vodka) 
-    collectedAllVodka.push([DB2.spirits[i].namn]);
-    
+  var collectedAllVodka = [];
+  for (i = 0; i < DB2.spirits.length; i++) {
+    if (DB2.spirits[i].varugrupp == vodka)
+      collectedAllVodka.push([DB2.spirits[i].namn]);
   }
-  // console.log(collectedAllWhisky, "collectedAllWhisky")
+  console.log(collectedAllVodka, "collectedAllVodka");
   var printVodka = "";
-  for(i=0; i < collectedAllVodka.length; i++){
-    printVodka += `<div class="menu__content"><a href="#" class="categories-list">${collectedAllVodka[i]}</a>
-    <a href="#" class="button menu__button">Order<i class='bx bx-cart-alt'></i></a></div>`;
+  for (i = 0; i < collectedAllVodka.length; i++) {
+    printVodka += `<div class="menu__content"><a href="#" class="categories-list menu__name">${collectedAllVodka[i]}</a>
+    <a href="#" class="button menu__button" onclick = "orderNow('${collectedAllVodka[i]}')">Order<i class='bx bx-cart-alt'></i></a></div>`;
   }
   $("#menu_container").html(printVodka);
 }
@@ -50,17 +69,16 @@ function allVodka() {
 
 function allWhisky() {
   var whisky = "Whisky, Malt";
-  var collectedAllWhisky = []
-  for(i=0; i < DB2.spirits.length ; i++){
-    if(DB2.spirits[i].varugrupp == whisky) 
-    collectedAllWhisky.push([DB2.spirits[i].namn]);
-    
+  var collectedAllWhisky = [];
+  for (i = 0; i < DB2.spirits.length; i++) {
+    if (DB2.spirits[i].varugrupp == whisky)
+      collectedAllWhisky.push([DB2.spirits[i].namn]);
   }
   // console.log(collectedAllWhisky, "collectedAllWhisky")
   var printWhisky = "";
-  for(i=0; i < collectedAllWhisky.length; i++){
-    printWhisky += `<div class="menu__content"><a href="#" class="categories-list">${collectedAllWhisky[i]}</a>
-    <a href="#" class="button menu__button">Order<i class='bx bx-cart-alt'></i></a></div>`;
+  for (i = 0; i < collectedAllWhisky.length; i++) {
+    printWhisky += `<div class="menu__content"><a href="#" class="categories-list menu__name">${collectedAllWhisky[i]}</a>
+    <a href="#" class="button menu__button" onclick = "orderNow('${collectedAllWhisky[i]}')">Order<i class='bx bx-cart-alt'></i></a></div>`;
   }
   $("#menu_container").html(printWhisky);
 }
@@ -90,15 +108,14 @@ function allStrongBeverages() {
   console.log(collectedNameByPercentage, "collectedNameByPercentage");
   var strengthOfBeverages = "";
   for (i = 0; i < collectedNameByPercentage.length; i++) {
-    strengthOfBeverages += `<div class="menu__content"><a href="#" class="categories-list">${collectedNameByPercentage[i]}</a>
-                            <a href="#" class="button menu__button">Order<i class='bx bx-cart-alt'></i></a></div>`;
+    strengthOfBeverages += `<div class="menu__content"><a href="#" class="categories-list menu__name">${collectedNameByPercentage[i]}</a>
+                            <a href="#" class="button menu__button" onclick = "orderNow('${collectedNameByPercentage[i]}')" >Order<i class='bx bx-cart-alt'></i></a></div>`;
     // console.log(strengthOfBeverages, "strengthOfBeverages");
   }
   $("#menu_container").html(strengthOfBeverages);
 }
 
 ////////////////////////////////////////////        SOFT BEVERAGES             //////////////////////////////////////////
-
 
 function allSoftBeverages() {
   // Using a local variable to collect the items.
@@ -124,8 +141,8 @@ function allSoftBeverages() {
   console.log(collectedNameByPercentageSoft, "collectedNameByPercentageSoft");
   var strengthOfSoftBeverages = "";
   for (i = 0; i < collectedNameByPercentageSoft.length; i++) {
-    strengthOfSoftBeverages += `<div class="menu__content"><a href="#" class="categories-list">${collectedNameByPercentageSoft[i]}</a>
-                                 <a href="#" class="button menu__button">Order<i class='bx bx-cart-alt'></i></a></div>`;
+    strengthOfSoftBeverages += `<div class="menu__content"><a href="#" class="categories-list menu__name">${collectedNameByPercentageSoft[i]}</a>
+                                 <a href="#" class="button menu__button" onclick = "orderNow('${collectedNameByPercentageSoft[i]}')">Order<i class='bx bx-cart-alt'></i></a></div>`;
     // console.log(strengthOfSoftBeverages, "strengthOfSoftBeverages");
   }
   $("#menu_container").html(strengthOfSoftBeverages);
@@ -154,7 +171,6 @@ function search() {
   $("#menu_container").html(searchData);
 }
 
-
 // function table(event) {
 //   // event.preventDefault();
 //   tableData = `
@@ -163,4 +179,3 @@ function search() {
 //     </div>;`
 //   $("#menu_container").html(tableData);
 // }
-
