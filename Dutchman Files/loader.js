@@ -15,11 +15,9 @@ $(document).ready(function () {
   // allSoftBeverages()
 });
 
-
-
 function allUserNam() {
   var nameCollect = [];
-  for (i = 0; i < DB2.spirits.length ; i++) {
+  for (i = 0; i < DB2.spirits.length; i++) {
     collectedName = nameCollect.push(DB2.spirits[i].namn);
   }
   // console.log(nameCollect,"huugug") ;
@@ -120,14 +118,9 @@ function allBeverages() {
 // higher than the strength given in percent.
 //
 
-
-
 // =====================================================================================================
 // Lists all beverage types in the database. As you will see, there are quite a few, and you might want
 // select only a few of them for your data.
-
-
-
 
 // =====================================================================================================
 // Adds an item to a set, only if the item is not already there.
@@ -153,15 +146,7 @@ function percentToNumber(percentStr) {
 // =====================================================================================================
 // =====================================================================================================
 
-
-
-
-
-
-
 /*============================================ LOG IN MODAL=================================================*/
-
-
 
 // Get the modal
 // var modal = document.getElementById("loginModal");

@@ -596,7 +596,8 @@ img {
 
 /*============================================ LOG IN =================================================*/
 
-.loginModal,.tableModal {
+.loginModal,
+.tableModal {
   display: none;
   position: fixed;
   z-index: 1;

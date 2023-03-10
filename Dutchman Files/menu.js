@@ -13,7 +13,7 @@ function menuokl() {
   }
   // console.log(menuContent);
   $("#menu_container").html(menuContent);
-
+}
 ////////////////////////////////////////////         ORDER           //////////////////////////////////////
 var orderList = [];
 
