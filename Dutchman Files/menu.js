@@ -8,7 +8,7 @@ function menuokl() {
               <h3 class="menu__name">${DB2.spirits[i].namn}</h3>
               <span class="menu__detail">${DB2.spirits[i].alkoholhalt}</span>
               <span class="menu__preci">${DB2.spirits[i].prisinklmoms}</span>
-              <a href="#" class="button menu__button" onclick = "orderNow('${DB2.spirits[i].namn}')">Order<i class='bx bx-cart-alt'></i></a>
+              <a href="#" class="button menu__button" onclick = "orderNow('${DB2.spirits[i].namn}<br>${DB2.spirits[i].prisinklmoms}')">Order<i class='bx bx-cart-alt'></i></a>
       </div>`;
   }
   // console.log(menuContent);
@@ -16,22 +16,39 @@ function menuokl() {
 }
 ////////////////////////////////////////////         ORDER           //////////////////////////////////////
 var orderList = [];
+var itemQuantities = {};
 
 function orderNow(itemName) {
+  if (itemQuantities[itemName]) {
+    itemQuantities[itemName]++;
+  } else {
+    itemQuantities[itemName] = 1;
+  }
   orderList.push(itemName);
   console.log(orderList, "orderList");
 }
 
 function cart() {
   var orderedItems = "";
-  for (i = 0; i < orderList.length; i++) {
-    // console.log(orderList.length);
+  for (var itemName in itemQuantities) {
+    var quantity = itemQuantities[itemName];
     orderedItems += `<div class="menu__content">
-    <h3 class="menu__name">${orderList[i]}</h3>
+    <h3 class="menu__name">${itemName}</h3>
+    <span class="menu__detail quantity">${quantity}</span>
+    <button class="menu__button plus" onclick="updateQuantity('${itemName}', 1)">+</button>
+    <button class="menu__button2 minus" onclick="updateQuantity('${itemName}', -1)">-</button>
 </div>`;
-    // console.log(orderedItems, "orderedItems");
   }
   $("#menu_container").html(orderedItems);
+}
+
+function updateQuantity(itemName, amount) {
+  itemQuantities[itemName] += amount;
+  if (itemQuantities[itemName] < 1) {
+    delete itemQuantities[itemName];
+    // orderList = orderList.filter((item) => item !== itemName);
+  }
+  cart();
 }
 
 ////////////////////////////////////////////         BEVERAGES TYPES           //////////////////////////////////////////
@@ -55,7 +72,9 @@ function allVodka() {
   var collectedAllVodka = [];
   for (i = 0; i < DB2.spirits.length; i++) {
     if (DB2.spirits[i].varugrupp == vodka)
-      collectedAllVodka.push([DB2.spirits[i].namn]);
+      collectedAllVodka.push([
+        DB2.spirits[i].namn + "<br>" + DB2.spirits[i].prisinklmoms,
+      ]);
   }
   console.log(collectedAllVodka, "collectedAllVodka");
   var printVodka = "";
@@ -72,7 +91,9 @@ function allWhisky() {
   var collectedAllWhisky = [];
   for (i = 0; i < DB2.spirits.length; i++) {
     if (DB2.spirits[i].varugrupp == whisky)
-      collectedAllWhisky.push([DB2.spirits[i].namn]);
+      collectedAllWhisky.push([
+        DB2.spirits[i].namn + "<br>" + DB2.spirits[i].prisinklmoms,
+      ]);
   }
   // console.log(collectedAllWhisky, "collectedAllWhisky")
   var printWhisky = "";
@@ -100,8 +121,7 @@ function allStrongBeverages() {
     if (percentToNumber(DB2.spirits[i].alkoholhalt) > strength) {
       // The key for the beverage name is "namn", and beverage type is "varugrupp".
       collectedNameByPercentage.push([
-        DB2.spirits[i].namn,
-        // DB2.spirits[i].varugrupp,
+        DB2.spirits[i].namn + "<br>" + DB2.spirits[i].prisinklmoms,
       ]);
     }
   }
@@ -132,9 +152,7 @@ function allSoftBeverages() {
     if (percentToNumber(DB2.spirits[i].alkoholhalt) < strength2) {
       // The key for the beverage name is "namn", and beverage type is "varugrupp".
       collectedNameByPercentageSoft.push([
-        DB2.spirits[i].namn,
-        // DB2.spirits[i].varugrupp,
-        // DB2.spirits[i].alkoholhalt,
+        DB2.spirits[i].namn + "<br>" + DB2.spirits[i].prisinklmoms,
       ]);
     }
   }

@@ -390,6 +390,15 @@ img {
   margin-bottom: var(--mb-1);
 }
 
+.menu__button2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  padding: 0.625rem 0.813rem;
+  border-radius: 0.5rem 0 0.5rem 0;
+}
+
 .menu__button {
   position: absolute;
   bottom: 0;
