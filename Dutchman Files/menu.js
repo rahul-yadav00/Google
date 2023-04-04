@@ -49,7 +49,7 @@ function updateQuantity(itemName, amount) {
     // orderList = orderList.filter((item) => item !== itemName);
   }
   cart();
-}
+}  
 
 ////////////////////////////////////////////         BEVERAGES TYPES           //////////////////////////////////////////
 function beverageTypes() {
@@ -197,3 +197,4 @@ function search() {
 //     </div>;`
 //   $("#menu_container").html(tableData);
 // }
+//testing
